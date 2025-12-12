@@ -1,10 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import API_BASE_URL from '../../config/api';
-
-const authApi = axios.create({
-    baseURL: API_BASE_URL,
-});
+import { getUsers } from '../../services/api';
 
 export const loginUser = createAsyncThunk(
     'auth/login',
@@ -13,8 +8,8 @@ export const loginUser = createAsyncThunk(
         const trimmedPassword = password.trim();
 
         try {
-            const response = await authApi.get('/users');
-            const user = response.data.find(
+            const users = await getUsers();
+            const user = users.find(
                 u => u.email.toLowerCase() === trimmedEmail && u.password === trimmedPassword
             );
 

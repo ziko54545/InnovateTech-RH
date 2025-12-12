@@ -1,3 +1,3 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://difficult-madelina-ofppt-d81fa5e3.koyeb.app';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4001';
 
 export default API_BASE_URL;

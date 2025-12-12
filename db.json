@@ -86,7 +86,7 @@
       "departement": "IT",
       "dateEmbauche": "2020-03-01",
       "salaire": 17000,
-      "status": "Active"
+      "status": "Archived"
     },
     {
       "id": "14",
@@ -110,18 +110,6 @@
       "departement": "Commercial",
       "dateEmbauche": "2018-07-20",
       "salaire": 16000,
-      "status": "Active"
-    },
-    {
-      "id": "16",
-      "matricule": "EMP0016",
-      "nom": "Rami",
-      "prenom": "Sofia",
-      "email": "sofia.rami@innovatetech.ma",
-      "poste": "Développeuse Frontend",
-      "departement": "IT",
-      "dateEmbauche": "2022-05-10",
-      "salaire": 14000,
       "status": "Active"
     },
     {
