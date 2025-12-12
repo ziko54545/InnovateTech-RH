@@ -1,42 +1,61 @@
 # InnovateTech RH - Système de Gestion des Employés
 
-> **Plateforme de gestion RH moderne et complète développée avec React + Redux Toolkit + Tailwind CSS**
+<div align="center">
 
+![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Redux](https://img.shields.io/badge/Redux_Toolkit-2.11.1-764ABC?style=for-the-badge&logo=redux&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7.2.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
+**Plateforme de gestion RH moderne et complète**
+
+[Fonctionnalités](#-fonctionnalités) • [Installation](#-installation) • [Démarrage](#-démarrage) • [Technologies](#-technologies-utilisées) • [Documentation](#-documentation)
+
+</div>
+
+---
 
 ## 📋 Table des Matières
 
 - [À Propos](#-à-propos)
 - [Fonctionnalités](#-fonctionnalités)
 - [Technologies Utilisées](#-technologies-utilisées)
+- [Prérequis](#-prérequis)
 - [Installation](#-installation)
 - [Démarrage](#-démarrage)
 - [Structure du Projet](#-structure-du-projet)
 - [API & Endpoints](#-api--endpoints)
 - [Comptes de Démonstration](#-comptes-de-démonstration)
 - [Guide d'Utilisation](#-guide-dutilisation)
+- [Scripts Disponibles](#-scripts-disponibles)
+- [Dépannage](#-dépannage)
+- [Équipe](#-équipe)
+- [License](#-license)
 
+---
 
 ## 🎯 À Propos
 
 **InnovateTech RH** est une application web moderne de gestion des ressources humaines conçue pour simplifier et optimiser la gestion des employés dans une entreprise. L'application offre une interface intuitive, des fonctionnalités complètes de CRUD (Create, Read, Update, Delete), des statistiques en temps réel, et des outils d'export de données.
 
-### Objectifs du Projet
+### 🎯 Objectifs du Projet
 
-- Centraliser la gestion des informations des employés
-- Fournir des statistiques et analyses visuelles
-- Automatiser les calculs d'ancienneté et de métriques RH
-- Offrir une expérience utilisateur moderne et responsive
-- Garantir la sécurité des données avec un système d'authentification
+- ✅ Centraliser la gestion des informations des employés
+- ✅ Fournir des statistiques et analyses visuelles
+- ✅ Automatiser les calculs d'ancienneté et de métriques RH
+- ✅ Offrir une expérience utilisateur moderne et responsive
+- ✅ Garantir la sécurité des données avec un système d'authentification
+
+---
 
 ## ✨ Fonctionnalités
 
 ### 🔐 Authentification & Sécurité
-- **Système d'authentification sécurisé** avec Redux Toolkit
-- **Protection des routes** - Accès restreint aux pages protégées
-- **Gestion de session** avec localStorage
-- **Page de transition** animée après connexion
-- **Déconnexion sécurisée** avec nettoyage des données
+- Système d'authentification sécurisé avec Redux Toolkit
+- Protection des routes - Accès restreint aux pages protégées
+- Gestion de session avec localStorage
+- Page de transition animée après connexion
+- Déconnexion sécurisée avec nettoyage des données
 
 ### 📊 Dashboard Interactif
 - **Statistiques en temps réel** :
@@ -44,91 +63,49 @@
   - Masse salariale totale
   - Salaire moyen
   - Anniversaires d'embauche du mois
-- **Graphiques interactifs** (préparés pour activation) :
+- **Graphiques interactifs** (Recharts) :
   - Répartition par département (graphique en donut)
   - Évolution des embauches par année (graphique en aires)
-- **Cartes statistiques** avec icônes et tendances
-- **Section anniversaires** avec affichage des employés concernés
+- Cartes statistiques avec icônes et tendances
+- Section anniversaires avec affichage des employés concernés
 
 ### 👥 Gestion des Employés (CRUD Complet)
 
 #### Liste des Employés
-- **Affichage en tableau** avec toutes les informations essentielles
-- **Recherche avancée** par nom, prénom, email, département, poste
-- **Filtrage par département** avec menu déroulant
-- **Tri** par colonnes (nom, département, date d'embauche, salaire)
-- **Actions rapides** :
-  - Voir les détails
-  - Modifier
-  - Archiver
-  - Supprimer 
-- **Export PDF** de la liste complète des employés
-- **Pagination** pour grandes listes
-- **Design responsive** adapté mobile/tablette/desktop
+- Affichage en tableau avec pagination
+- Recherche avancée (nom, prénom, email, département, poste)
+- Filtrage par département
+- Tri par colonnes (nom, département, date d'embauche, salaire)
+- Actions rapides : Voir, Modifier, Archiver, Supprimer
+- Export PDF de la liste complète
+- Design responsive (mobile/tablette/desktop)
 
-#### Ajout/Modification d'Employé
-- **Formulaire complet** avec validation
-- **Champs disponibles** :
-  - Matricule (génération automatique)
-  - Nom et Prénom
-  - Email
-  - Téléphone
-  - Date d'embauche
-  - Département (IT, Commercial, RH, Finance, Marketing, Production)
-  - Poste
-  - Salaire
-  - Statut (Actif, Archivé)
-- **Validation en temps réel** des champs
-- **Calcul automatique** de l'ancienneté
-- **Notifications** de succès/erreur
+#### Formulaire Employé
+- Formulaire complet avec validation en temps réel
+- Génération automatique du matricule
+- Champs : Matricule, Nom, Prénom, Email, Téléphone, Date d'embauche, Département, Poste, Salaire, Statut
+- Calcul automatique de l'ancienneté
+- Notifications toast de succès/erreur
 
-#### Détails de l'Employé
-- **Vue détaillée** avec toutes les informations
-- **Affichage de l'ancienneté** calculée automatiquement
-- **Actions disponibles** :
-  - Modifier les informations
-  - Archiver l'employé
-  - Retour à la liste
-- **Design de carte** moderne avec badges de département
+#### Détails Employé
+- Vue détaillée avec toutes les informations
+- Calcul automatique de l'ancienneté (années et mois)
+- Actions : Modifier, Archiver, Retour à la liste
+- Design de carte moderne avec badges de département
 
-### 📈 Calculs Automatiques
-- **Ancienneté** : Calcul automatique en années et mois
-- **Masse salariale** : Somme totale des salaires
-- **Salaire moyen** : Calcul automatique
-- **Anniversaires** : Détection automatique des anniversaires d'embauche du mois
+### 📈 Fonctionnalités Avancées
+- **Calculs Automatiques** : Ancienneté, Masse salariale, Salaire moyen
+- **Export PDF** : Génération professionnelle avec jsPDF
+- **Mode Dark/Light** : Toggle de thème
+- **Internationalisation** : Support multilingue (contexte prêt)
+- **Notifications** : Toast modernes avec react-hot-toast
+- **Animations** : Transitions fluides avec Tailwind
 
-### 📄 Export de Données
-- **Export PDF professionnel** avec :
-  - En-tête avec logo et titre
-  - Date de génération
-  - Nombre total d'employés
-  - Tableau formaté avec toutes les informations
-  - Mise en page professionnelle
-
-### 🎨 Interface Utilisateur
-- **Design moderne** avec palette de couleurs sombre premium
-- **Mode sombre/clair** avec toggle de thème
-- **Animations fluides** et transitions
-- **Responsive design** pour tous les écrans
-- **Notifications toast** modernes avec react-hot-toast
-- **Icônes Lucide React** pour une interface intuitive
-- **Loading states** pour une meilleure UX
-
-### 🔍 Recherche & Filtres
-- **Recherche globale** dans tous les champs
-- **Filtrage par département**
-- **Tri multi-colonnes**
-- **Recherche en temps réel** sans rechargement
-
-### 📱 Responsive Design
-- **Mobile-first** approach
-- **Adaptation tablette** optimisée
-- **Desktop** avec layout complet
-- **Navigation adaptative** selon la taille d'écran
+---
 
 ## 🛠️ Technologies Utilisées
 
-### Frontend
+### Frontend Core
 - **React 19.2.0** - Bibliothèque UI moderne
 - **React Router DOM 7.10.1** - Routage côté client
 - **Redux Toolkit 2.11.1** - Gestion d'état globale
@@ -140,50 +117,67 @@
 - **tailwindcss-animate 1.0.7** - Animations Tailwind
 - **tailwind-merge 3.4.0** - Fusion de classes Tailwind
 - **clsx 2.1.1** - Utilitaire pour les classes conditionnelles
-- **class-variance-authority 0.7.1** - Gestion des variantes de composants
+- **class-variance-authority 0.7.1** - Gestion des variantes
 
 ### Graphiques & Visualisation
 - **Recharts 3.5.1** - Bibliothèque de graphiques React
+- **Lucide React 0.559.0** - Icônes modernes
 
-### Icons & Assets
-- **Lucide React 0.559.0** - Bibliothèque d'icônes moderne
-
-### PDF & Export
+### PDF & Notifications
 - **jsPDF 3.0.4** - Génération de PDF côté client
 - **jspdf-autotable 5.0.2** - Tables dans les PDF
-
-### Notifications
-- **react-hot-toast 2.6.0** - Système de notifications toast moderne
+- **react-hot-toast 2.6.0** - Système de notifications toast
 
 ### Backend (Mock API)
-- **JSON Server 1.0.0-beta.3** - API REST mock pour développement
+- **JSON Server 1.0.0-beta.3** - API REST mock
 - **Concurrently 9.2.1** - Exécution simultanée de scripts
 
-### Build Tools & DevDependencies
+### Build Tools
 - **Vite 7.2.4** - Build tool ultra-rapide
 - **@vitejs/plugin-react 5.1.1** - Plugin React pour Vite
 - **ESLint 9.39.1** - Linter JavaScript
 - **PostCSS 8.5.6** - Traitement CSS
 - **Autoprefixer 10.4.22** - Préfixes CSS automatiques
 
+---
 
+## 📦 Prérequis
 
+Avant de commencer, assurez-vous d'avoir installé :
 
+- **Node.js** (version 18.x ou supérieure)
+- **npm** (version 9.x ou supérieure) ou **yarn**
+- Un navigateur moderne (Chrome, Firefox, Safari, Edge)
 
+---
 
+## 🚀 Installation
 
-## 🚀 Démarrage
+1. **Cloner le dépôt**
+```bash
+git clone https://github.com/votre-username/innovatetech-rh.git
+cd innovatetech-rh
+```
+
+2. **Installer les dépendances**
+```bash
+npm install
+```
+
+---
+
+## 🎬 Démarrage
 
 ### Démarrage Complet (Recommandé)
 
-Cette commande démarre simultanément tous les serveurs nécessaires :
+Lance simultanément le frontend et les APIs :
 
 ```bash
 npm start
 ```
 
-Cette commande lance :
-- ✅ **Frontend** (Vite Dev Server) sur `http://localhost:5173` (ou port disponible)
+Cette commande démarre :
+- ✅ **Frontend** (Vite) sur `http://localhost:5173`
 - ✅ **API Employés** (JSON Server) sur `http://localhost:3001`
 - ✅ **API Auth** (JSON Server) sur `http://localhost:3002`
 
@@ -204,106 +198,99 @@ npm run dev
 
 ### Build de Production
 
-Pour créer une version de production :
-
 ```bash
+# Créer le build de production
 npm run build
-```
 
-Pour prévisualiser le build de production :
-
-```bash
+# Prévisualiser le build
 npm run preview
 ```
+
+---
 
 ## 📁 Structure du Projet
 
 ```
 innovate-tech-rh/
 ├── public/
-│   ├── logo.png              # Logo de l'application
-│   └── vite.svg              # SVG Vite
+│   ├── logo.png                      # Logo de l'application
+│   └── vite.svg                      # Icône Vite
 ├── src/
 │   ├── app/
-│   │   └── store.js          # Configuration Redux Store
+│   │   └── store.js                  # Configuration Redux Store
 │   ├── components/
 │   │   ├── auth/
-│   │   │   └── ProtectedRoute.jsx    # Composant de protection des routes
-│   │   ├── common/
-│   │   │   └── Button.jsx            # Bouton commun (ancien)
+│   │   │   └── ProtectedRoute.jsx    # Protection des routes
 │   │   ├── dashboard/
-│   │   │   └── StatCard.jsx          # Carte de statistique pour le dashboard
+│   │   │   └── StatCard.jsx          # Carte de statistique
 │   │   ├── layout/
-│   │   │   ├── Header.jsx            # En-tête avec navigation
-│   │   │   ├── MainLayout.jsx        # Layout principal avec Outlet
-│   │   │   └── Sidebar.jsx           # Barre latérale (si utilisée)
+│   │   │   ├── Header.jsx            # En-tête navigation
+│   │   │   └── MainLayout.jsx        # Layout principal
 │   │   └── ui/
-│   │       └── Button.jsx            # Composant bouton réutilisable
+│   │       └── Button.jsx            # Composant bouton
 │   ├── contexts/
-│   │   ├── LanguageContext.jsx       # Contexte de langue (i18n)
-│   │   └── ThemeContext.jsx          # Contexte de thème (dark/light)
+│   │   ├── LanguageContext.jsx       # Contexte i18n
+│   │   └── ThemeContext.jsx          # Contexte thème
 │   ├── features/
 │   │   ├── auth/
-│   │   │   └── authSlice.js          # Redux slice pour l'authentification
+│   │   │   └── authSlice.js          # Redux slice auth
 │   │   └── employees/
-│   │       └── employeeSlice.js      # Redux slice pour les employés
+│   │       └── employeeSlice.js      # Redux slice employés
 │   ├── pages/
-│   │   ├── Dashboard.jsx             # Page tableau de bord
-│   │   ├── EmployeeDetails.jsx       # Page détails d'un employé
-│   │   ├── EmployeeForm.jsx          # Formulaire ajout/modification
-│   │   ├── EmployeeList.jsx          # Liste des employés
+│   │   ├── Dashboard.jsx             # Tableau de bord
+│   │   ├── EmployeeDetails.jsx       # Détails employé
+│   │   ├── EmployeeForm.jsx          # Formulaire CRUD
+│   │   ├── EmployeeList.jsx          # Liste employés
 │   │   ├── Landing.jsx               # Page d'accueil
-│   │   ├── LoadingTransition.jsx     # Page de transition après login
-│   │   └── Login.jsx                 # Page de connexion
+│   │   ├── LoadingTransition.jsx     # Transition login
+│   │   └── Login.jsx                 # Page connexion
 │   ├── services/
-│   │   └── api.js                    # Configuration Axios et services API
+│   │   └── api.js                    # Configuration Axios
 │   ├── utils/
-│   │   ├── cn.js                     # Utilitaire pour classes CSS
-│   │   ├── helpers.js                # Fonctions utilitaires (formatCurrency, calculateSeniority, etc.)
-│   │   ├── pdfExport.js              # Fonction d'export PDF
+│   │   ├── cn.js                     # Utilitaire classes CSS
+│   │   ├── helpers.js                # Fonctions helpers
+│   │   ├── pdfExport.js              # Export PDF
 │   │   └── translations.js           # Traductions i18n
-│   ├── App.jsx                       # Composant racine avec routes
+│   ├── App.jsx                       # Composant racine
 │   ├── App.css                       # Styles globaux
-│   ├── index.css                     # Styles Tailwind et globaux
-│   └── main.jsx                      # Point d'entrée React
-├── db.json                           # Base de données des employés (JSON Server)
-├── data.json                         # Base de données d'authentification (JSON Server)
-├── .gitignore                        # Fichiers ignorés par Git
-├── eslint.config.js                  # Configuration ESLint
-├── package.json                      # Dépendances et scripts npm
-├── package-lock.json                 # Lock file des dépendances
-├── postcss.config.js                 # Configuration PostCSS
-├── tailwind.config.js                # Configuration Tailwind CSS
-├── vite.config.js                    # Configuration Vite
-└── README.md                         # Documentation du projet
+│   ├── index.css                     # Styles Tailwind
+│   └── main.jsx                      # Point d'entrée
+├── db.json                           # BDD employés (JSON Server)
+├── data.json                         # BDD auth (JSON Server)
+├── package.json                      # Dépendances npm
+├── tailwind.config.js                # Config Tailwind
+├── vite.config.js                    # Config Vite
+└── README.md                         # Documentation
 ```
+
+---
 
 ## 🔌 API & Endpoints
 
 ### API Employés (Port 3001)
 
-Base URL: `http://localhost:3001`
+**Base URL:** `http://localhost:3001`
 
 | Méthode | Endpoint | Description |
 |---------|----------|-------------|
-| GET | `/employees` | Récupérer tous les employés |
-| GET | `/employees/:id` | Récupérer un employé par ID |
-| POST | `/employees` | Créer un nouvel employé |
-| PUT | `/employees/:id` | Mettre à jour un employé |
-| PATCH | `/employees/:id` | Mettre à jour partiellement un employé |
-| DELETE | `/employees/:id` | Supprimer un employé |
+| `GET` | `/employees` | Récupérer tous les employés |
+| `GET` | `/employees/:id` | Récupérer un employé par ID |
+| `POST` | `/employees` | Créer un nouvel employé |
+| `PUT` | `/employees/:id` | Mettre à jour un employé |
+| `PATCH` | `/employees/:id` | Mise à jour partielle |
+| `DELETE` | `/employees/:id` | Supprimer un employé |
 
 ### API Authentification (Port 3002)
 
-Base URL: `http://localhost:3002`
+**Base URL:** `http://localhost:3002`
 
 | Méthode | Endpoint | Description |
 |---------|----------|-------------|
-| GET | `/users` | Récupérer tous les utilisateurs |
+| `GET` | `/users` | Récupérer tous les utilisateurs |
 
 ### Structure des Données
 
-#### Employé (Employee)
+#### Employé
 ```json
 {
   "id": "string",
@@ -320,7 +307,7 @@ Base URL: `http://localhost:3002`
 }
 ```
 
-#### Utilisateur (User)
+#### Utilisateur
 ```json
 {
   "id": "string",
@@ -331,149 +318,155 @@ Base URL: `http://localhost:3002`
 }
 ```
 
+---
+
 ## 🔐 Comptes de Démonstration
 
 ### Compte Administrateur
-- **Email:** `admin@innovatetech.ma`
-- **Mot de passe:** `admin123`
-- **Rôle:** Admin
+```
+Email: admin@innovatetech.ma
+Mot de passe: admin123
+Rôle: Admin
+```
 
 ### Compte Employé
-- **Email:** `zakariahannane28@gmail.com`
-- **Mot de passe:** `password123`
-- **Rôle:** Employee
+```
+Email: zakariahannane28@gmail.com
+Mot de passe: password123
+Rôle: Employee
+```
+
+---
 
 ## 📖 Guide d'Utilisation
 
-### 1. Connexion
+### 1️⃣ Connexion
 1. Accédez à `http://localhost:5173`
-2. Cliquez sur "Se connecter" ou naviguez vers `/login`
+2. Cliquez sur "Se connecter"
 3. Entrez vos identifiants
-4. Après connexion, vous serez redirigé vers la page de transition puis le dashboard
+4. Vous serez redirigé vers le dashboard après une transition animée
 
-### 2. Dashboard
-- Visualisez les statistiques globales
+### 2️⃣ Dashboard
+- Visualisez les statistiques en temps réel
 - Consultez les anniversaires d'embauche du mois
-- Naviguez vers la liste des employés
+- Accédez aux graphiques de répartition
 
-### 3. Gestion des Employés
+### 3️⃣ Gestion des Employés
 
 #### Ajouter un Employé
-1. Cliquez sur "Employés" dans la navigation
-2. Cliquez sur le bouton "Nouvel Employé" ou naviguez vers `/employees/new`
-3. Remplissez le formulaire
-4. Le matricule sera généré automatiquement si non fourni
-5. Cliquez sur "Enregistrer"
-
-#### Modifier un Employé
-1. Dans la liste, cliquez sur l'icône "Modifier" ou sur le nom de l'employé
-2. Modifiez les informations souhaitées
+1. Cliquez sur "Employés" → "Nouvel Employé"
+2. Remplissez le formulaire (matricule auto-généré)
 3. Cliquez sur "Enregistrer"
 
-#### Voir les Détails
-1. Cliquez sur l'icône "Voir" ou sur le nom de l'employé
-2. Consultez toutes les informations détaillées
-3. L'ancienneté est calculée automatiquement
-
-#### Archiver un Employé
-1. Cliquez sur "Archiver" dans les actions
-2. Confirmez l'action
-3. L'employé sera marqué comme archivé
-
-#### Supprimer un Employé
-1. Cliquez sur "Supprimer" dans les actions
-2. Confirmez la suppression
-3. L'employé sera définitivement supprimé
+#### Modifier un Employé
+1. Dans la liste, cliquez sur l'icône "Modifier"
+2. Modifiez les informations
+3. Enregistrez les modifications
 
 #### Rechercher et Filtrer
-1. Utilisez la barre de recherche pour rechercher par nom, email, département, etc.
-2. Utilisez le filtre par département pour affiner les résultats
-3. Les résultats se mettent à jour en temps réel
+1. Utilisez la barre de recherche (recherche globale)
+2. Filtrez par département
+3. Triez par colonne
 
 #### Exporter en PDF
-1. Dans la liste des employés, cliquez sur "Exporter PDF"
-2. Un fichier PDF sera généré et téléchargé automatiquement
+1. Cliquez sur "Exporter PDF" dans la liste
+2. Le fichier sera téléchargé automatiquement
 
-### 4. Déconnexion
-1. Cliquez sur "Déconnexion" dans le header
-2. Vous serez redirigé vers la page de connexion
-
-## 🎨 Personnalisation
-
-### Thème
-L'application supporte le mode sombre et clair. Utilisez le bouton de toggle dans le header pour changer de thème.
-
-### Couleurs des Départements
-Les départements ont des couleurs associées :
-- **IT:** Bleu (`#3b82f6`)
-- **Commercial:** Cyan (`#06b6d4`)
-- **RH:** Orange (`#f59e0b`)
-- **Finance:** Violet (`#8b5cf6`)
-- **Marketing:** Rouge (`#ef4444`)
-- **Production:** Vert (`#10b981`)
-
-## 🐛 Dépannage
-
-### Les serveurs ne démarrent pas
-- Vérifiez que les ports 3001, 3002 et 5173 sont disponibles
-- Vérifiez que Node.js et npm sont installés correctement
-- Supprimez `node_modules` et `package-lock.json`, puis réinstallez avec `npm install`
-
-### Erreur de connexion à l'API
-- Vérifiez que les serveurs JSON sont bien démarrés
-- Vérifiez les URLs dans `src/services/api.js` et `src/features/auth/authSlice.js`
-- Vérifiez que les fichiers `db.json` et `data.json` existent
-
-### Problème d'authentification
-- Vérifiez que le serveur sur le port 3002 est démarré
-- Vérifiez les données dans `data.json`
-- Videz le localStorage du navigateur et reconnectez-vous
-
-### Erreurs de build
-- Exécutez `npm run lint` pour vérifier les erreurs ESLint
-- Vérifiez que toutes les dépendances sont installées
-- Vérifiez la compatibilité des versions Node.js
+---
 
 ## 📝 Scripts Disponibles
 
 | Script | Description |
 |--------|-------------|
 | `npm start` | Démarre tous les serveurs (frontend + APIs) |
-| `npm run dev` | Démarre uniquement le serveur de développement Vite |
-| `npm run server` | Démarre uniquement le serveur JSON pour les employés (port 3001) |
-| `npm run data-server` | Démarre uniquement le serveur JSON pour l'authentification (port 3002) |
+| `npm run dev` | Démarre uniquement le frontend (Vite) |
+| `npm run server` | Démarre l'API employés (port 3001) |
+| `npm run data-server` | Démarre l'API auth (port 3002) |
 | `npm run build` | Crée un build de production |
 | `npm run preview` | Prévisualise le build de production |
-| `npm run lint` | Exécute ESLint pour vérifier le code |
-
-## 👥 Équipe de Développement
-
-Ce projet a été développé avec passion et dévouement par :
-
-### 👨‍💻 **Zakaria Hannane**
-- Développeur Frontend
-- Email: zakariahannane28@gmail.com
-
-### 👨‍💻 **Yassine Rida**
-- Développeur Frontend
-- Contribution au développement et à la conception
+| `npm run lint` | Exécute ESLint |
 
 ---
 
+## 🐛 Dépannage
 
+### Les serveurs ne démarrent pas
+- Vérifiez que les ports 3001, 3002 et 5173 sont disponibles
+- Vérifiez que Node.js et npm sont correctement installés
+- Supprimez `node_modules` et réinstallez : `rm -rf node_modules && npm install`
+
+### Erreur de connexion à l'API
+- Vérifiez que les serveurs JSON sont démarrés
+- Vérifiez que `db.json` et `data.json` existent à la racine
+- Consultez la console du navigateur pour plus de détails
+
+### Problème d'authentification
+- Vérifiez que le serveur port 3002 fonctionne
+- Videz le localStorage : `localStorage.clear()`
+- Reconnectez-vous avec les comptes de démonstration
+
+---
+
+## 🎨 Personnalisation
+
+### Thème
+Utilisez le toggle dans le header pour basculer entre mode sombre et clair.
+
+### Couleurs des Départements
+```javascript
+IT: #3b82f6 (Bleu)
+Commercial: #06b6d4 (Cyan)
+RH: #f59e0b (Orange)
+Finance: #8b5cf6 (Violet)
+Marketing: #ef4444 (Rouge)
+Production: #10b981 (Vert)
+```
+
+---
+
+## 👥 Équipe
+
+Ce projet a été développé avec passion par :
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://via.placeholder.com/100" width="100px;" alt="Zakaria"/>
+      <br />
+      <sub><b>Zakaria Hannane</b></sub>
+      <br />
+      <sub>Développeur Frontend</sub>
+      <br />
+      <a href="mailto:zakariahannane28@gmail.com">📧 Email</a>
+    </td>
+    <td align="center">
+      <img src="https://via.placeholder.com/100" width="100px;" alt="Yassine"/>
+      <br />
+      <sub><b>Yassine Rida</b></sub>
+      <br />
+      <sub>Développeur Frontend</sub>
+      <br />
+      <sub>Contribution au développement</sub>
+    </td>
+  </tr>
+</table>
+
+---
 
 ## 🙏 Remerciements
 
-- **React Team** pour l'excellent framework
-- **Redux Team** pour la gestion d'état
-- **Tailwind CSS** pour le système de design
-- **Vite** pour l'outil de build ultra-rapide
+- [React Team](https://react.dev/) pour l'excellent framework
+- [Redux Team](https://redux.js.org/) pour la gestion d'état
+- [Tailwind Labs](https://tailwindcss.com/) pour le système de design
+- [Vite Team](https://vitejs.dev/) pour l'outil de build
 - Tous les contributeurs des bibliothèques open-source utilisées
 
 ---
 
-**© 2025 InnovateTech RH - Développé par Zakaria Hannane et Yassine Rida**
+## 📄 License
 
+Copyright © 2025 **InnovateTech RH**
 
-#   i n n o v a t e - R h  
- 
+Développé par **Zakaria Hannane** et **Yassine Rida**
+
+---
