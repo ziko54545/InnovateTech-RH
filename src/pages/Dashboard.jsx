@@ -19,22 +19,18 @@ const Dashboard = () => {
         }
     }, [dispatch, list.length]);
 
-    // Filter out archived employees for stats
     const activeEmployees = list.filter(emp => emp.status !== 'Archived');
 
-    // Calculations (only active employees)
     const totalEmployees = activeEmployees.length;
     const totalPayroll = activeEmployees.reduce((acc, emp) => acc + Number(emp.salaire), 0);
     const avgSalary = totalEmployees > 0 ? (totalPayroll / totalEmployees).toFixed(0) : 0;
 
-    // Anniversaries this month (only active employees)
     const currentMonth = new Date().getMonth() + 1;
     const anniversaries = activeEmployees.filter(emp => {
         const hireMonth = new Date(emp.dateEmbauche).getMonth() + 1;
         return hireMonth === currentMonth;
     });
 
-    // Chart 1: Department Distribution (Donut Chart) - only active employees
     const deptData = activeEmployees.reduce((acc, emp) => {
         acc[emp.departement] = (acc[emp.departement] || 0) + 1;
         return acc;
@@ -45,7 +41,6 @@ const Dashboard = () => {
         value: deptData[dept]
     }));
 
-    // Chart 2: Hiring Timeline (all employees for historical data)
     const hiringByYear = list.reduce((acc, emp) => {
         const year = new Date(emp.dateEmbauche).getFullYear();
         acc[year] = (acc[year] || 0) + 1;
@@ -79,7 +74,6 @@ const Dashboard = () => {
 
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500" dir={dir}>
-            {/* Header */}
             <div>
                 <h2 className={`text-3xl font-bold mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                     {t('dashboardTitle')}
@@ -89,7 +83,6 @@ const Dashboard = () => {
                 </p>
             </div>
 
-            {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <StatCard
                     title={t('statsTotal')}
@@ -121,10 +114,8 @@ const Dashboard = () => {
                 />
             </div>
 
-            {/* Charts Section */}
             {donutData.length > 0 && (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Chart 1: Department Distribution (Donut Chart) */}
                     <div className={`rounded-2xl border p-6 shadow-xl transition-all ${theme === 'dark' ? 'bg-[#0f172a] border-white/5 hover:border-white/10' : 'bg-white border-gray-200 hover:border-gray-300'}`}>
                         <h3 className={`text-lg font-bold mb-6 flex items-center gap-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                             <Building2 className="w-5 h-5 text-blue-400" />
@@ -158,7 +149,6 @@ const Dashboard = () => {
                         </ResponsiveContainer>
                     </div>
 
-                    {/* Chart 2: Hiring Timeline (Area Chart) */}
                     {hiringData.length > 0 && (
                         <div className={`rounded-2xl border p-6 shadow-xl transition-all ${theme === 'dark' ? 'bg-[#0f172a] border-white/5 hover:border-white/10' : 'bg-white border-gray-200 hover:border-gray-300'}`}>
                             <h3 className={`text-lg font-bold mb-6 flex items-center gap-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
@@ -209,7 +199,6 @@ const Dashboard = () => {
                 </div>
             )}
 
-            {/* Anniversaries Section */}
             <div className={`rounded-2xl border p-6 shadow-xl transition-all ${theme === 'dark' ? 'bg-[#0f172a] border-white/5 hover:border-white/10' : 'bg-white border-gray-200 hover:border-gray-300'}`}>
                 <h3 className={`text-lg font-bold mb-6 flex items-center gap-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                     <Calendar className="w-5 h-5 text-orange-400" />

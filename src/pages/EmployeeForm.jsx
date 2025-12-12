@@ -30,7 +30,7 @@ const EmployeeForm = () => {
             if (employee) {
                 setFormData(employee);
             } else {
-                dispatch(fetchEmployees()); // Refresh if not found (direct link)
+                dispatch(fetchEmployees());
             }
         }
     }, [id, list, isEdit, dispatch]);

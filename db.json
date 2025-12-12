@@ -425,19 +425,6 @@
       "dateEmbauche": "2025-12-11",
       "matricule": "EMP5010",
       "status": "Archived"
-    },
-    {
-      "id": "7a1c",
-      "prenom": "hannane",
-      "nom": "zakaria",
-      "email": "zakariahannane28@gmail.com",
-      "telephone": "0693056988",
-      "poste": "Développer full-stack",
-      "departement": "IT",
-      "salaire": "4500",
-      "dateEmbauche": "2024-12-12",
-      "matricule": "EMP5067",
-      "status": "Archived"
     }
   ]
 }

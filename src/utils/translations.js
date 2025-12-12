@@ -1,6 +1,5 @@
 export const translations = {
     fr: {
-        // Navigation
         dashboard: "Tableau de bord",
         employees: "Employés",
         logout: "Déconnexion",
@@ -8,7 +7,6 @@ export const translations = {
         services: "Services",
         contact: "Contact",
 
-        // Dashboard
         dashboardTitle: "Tableau de bord",
         dashboardSubtitle: "Vue d'ensemble de vos ressources humaines.",
         statsTotal: "Total Employés",
@@ -27,7 +25,6 @@ export const translations = {
         hiringTimeline: "Évolution des Embauches",
         hires: "Embauches",
 
-        // Employee List
         employeeListTitle: "Annuaire Employés",
         employeeListSubtitle: "Gérez, filtrez et exportez votre base de données RH.",
         searchPlaceholder: "Rechercher (Nom, ID, Email)...",
@@ -42,11 +39,9 @@ export const translations = {
         noEmployees: "Aucun employé trouvé",
         actions: "Actions",
 
-        // Employee Status
         active: "Actif",
         archived: "Archivé",
 
-        // Employee Actions
         details: "Voir les détails",
         edit: "Modifier",
         delete: "Supprimer",
@@ -54,7 +49,6 @@ export const translations = {
         unarchive: "Restaurer",
         cancel: "Annuler",
 
-        // Employee Form
         newEmployee: "Nouvel employé",
         editEmployee: "Modifier l'employé",
         backToDirectory: "Retour à l'annuaire",
@@ -69,7 +63,6 @@ export const translations = {
         save: "Enregistrer",
         saving: "Enregistrement...",
 
-        // Employee Details
         employeeDetails: "Détails de l'employé",
         backToList: "Retour à la liste",
         personalInfo: "Informations Personnelles",
@@ -78,7 +71,6 @@ export const translations = {
         dateHired: "Date d'embauche",
         matricule: "Matricule",
 
-        // Archive/Delete Confirmations
         archiveConfirm: "Archiver l'employé ?",
         archiveMessage: "L'employé sera déplacé vers les archives mais ses données seront conservées.",
         archiveSuccess: "✓ Employé archivé avec succès",
@@ -92,7 +84,6 @@ export const translations = {
         deleteError: "Erreur lors de la suppression",
         saveError: "Erreur lors de l'enregistrement",
 
-        // Login
         loginTitle: "Connectez-vous à votre espace",
         emailLabel: "Email",
         passwordLabel: "Mot de passe",
@@ -103,7 +94,6 @@ export const translations = {
         loginError: "Email ou mot de passe incorrect",
         connectionError: "Erreur de connexion",
 
-        // Landing Page
         landingTitle: "InnovateTech",
         landingSubtitle: "Ressources Humaines",
         landingDescription: "La plateforme de gestion RH moderne qui transforme votre département en un centre d'excellence",
@@ -140,18 +130,14 @@ export const translations = {
         benefit5: "Interface responsive",
         benefit6: "Support technique 24/7",
 
-        // Theme
         switchToLight: "Passer en mode clair",
         switchToDark: "Passer en mode sombre",
 
-        // Loading
         loading: "Chargement...",
 
-        // Common
         welcome: "Bienvenue",
     },
     en: {
-        // Navigation
         dashboard: "Dashboard",
         employees: "Employees",
         logout: "Logout",
@@ -159,7 +145,6 @@ export const translations = {
         services: "Services",
         contact: "Contact",
 
-        // Dashboard
         dashboardTitle: "Dashboard",
         dashboardSubtitle: "Overview of your human resources.",
         statsTotal: "Total Employees",
@@ -178,7 +163,6 @@ export const translations = {
         hiringTimeline: "Hiring Timeline",
         hires: "Hires",
 
-        // Employee List
         employeeListTitle: "Employee Directory",
         employeeListSubtitle: "Manage, filter and export your HR database.",
         searchPlaceholder: "Search (Name, ID, Email)...",
@@ -193,11 +177,9 @@ export const translations = {
         noEmployees: "No employees found",
         actions: "Actions",
 
-        // Employee Status
         active: "Active",
         archived: "Archived",
 
-        // Employee Actions
         details: "View Details",
         edit: "Edit",
         delete: "Delete",
@@ -205,7 +187,6 @@ export const translations = {
         unarchive: "Restore",
         cancel: "Cancel",
 
-        // Employee Form
         newEmployee: "New Employee",
         editEmployee: "Edit Employee",
         backToDirectory: "Back to Directory",
@@ -220,7 +201,6 @@ export const translations = {
         save: "Save",
         saving: "Saving...",
 
-        // Employee Details
         employeeDetails: "Employee Details",
         backToList: "Back to List",
         personalInfo: "Personal Information",
@@ -229,7 +209,6 @@ export const translations = {
         dateHired: "Date Hired",
         matricule: "Employee ID",
 
-        // Archive/Delete Confirmations
         archiveConfirm: "Archive employee?",
         archiveMessage: "The employee will be moved to archives but their data will be preserved.",
         archiveSuccess: "✓ Employee archived successfully",
@@ -243,7 +222,6 @@ export const translations = {
         deleteError: "Error deleting employee",
         saveError: "Error saving employee",
 
-        // Login
         loginTitle: "Login to your workspace",
         emailLabel: "Email",
         passwordLabel: "Password",
@@ -254,7 +232,6 @@ export const translations = {
         loginError: "Incorrect email or password",
         connectionError: "Connection error",
 
-        // Landing Page
         landingTitle: "InnovateTech",
         landingSubtitle: "Human Resources",
         landingDescription: "The modern HR management platform that transforms your department into a center of excellence",
@@ -291,18 +268,14 @@ export const translations = {
         benefit5: "Responsive interface",
         benefit6: "24/7 technical support",
 
-        // Theme
         switchToLight: "Switch to light mode",
         switchToDark: "Switch to dark mode",
 
-        // Loading
         loading: "Loading...",
 
-        // Common
         welcome: "Welcome",
     },
     ar: {
-        // Navigation
         dashboard: "لوحة القيادة",
         employees: "الموظفين",
         logout: "تسجيل الخروج",
@@ -310,7 +283,6 @@ export const translations = {
         services: "الخدمات",
         contact: "اتصل بنا",
 
-        // Dashboard
         dashboardTitle: "لوحة القيادة",
         dashboardSubtitle: "نظرة عامة على مواردك البشرية.",
         statsTotal: "إجمالي الموظفين",
@@ -329,7 +301,6 @@ export const translations = {
         hiringTimeline: "تطور التوظيف",
         hires: "التوظيفات",
 
-        // Employee List
         employeeListTitle: "دليل الموظفين",
         employeeListSubtitle: "إدارة وتصفية وتصدير قاعدة بيانات الموارد البشرية الخاصة بك.",
         searchPlaceholder: "بحث (الاسم، المعرف، البريد الإلكتروني)...",
@@ -344,11 +315,9 @@ export const translations = {
         noEmployees: "لم يتم العثور على موظفين",
         actions: "الإجراءات",
 
-        // Employee Status
         active: "نشط",
         archived: "مؤرشف",
 
-        // Employee Actions
         details: "عرض التفاصيل",
         edit: "تعديل",
         delete: "حذف",
@@ -356,7 +325,6 @@ export const translations = {
         unarchive: "استعادة",
         cancel: "إلغاء",
 
-        // Employee Form
         newEmployee: "موظف جديد",
         editEmployee: "تعديل الموظف",
         backToDirectory: "العودة إلى الدليل",
@@ -371,7 +339,6 @@ export const translations = {
         save: "حفظ",
         saving: "جاري الحفظ...",
 
-        // Employee Details
         employeeDetails: "تفاصيل الموظف",
         backToList: "العودة إلى القائمة",
         personalInfo: "المعلومات الشخصية",
@@ -380,7 +347,6 @@ export const translations = {
         dateHired: "تاريخ التوظيف",
         matricule: "رقم الموظف",
 
-        // Archive/Delete Confirmations
         archiveConfirm: "أرشفة الموظف؟",
         archiveMessage: "سيتم نقل الموظف إلى الأرشيف ولكن سيتم الحفاظ على بياناته.",
         archiveSuccess: "✓ تم أرشفة الموظف بنجاح",
@@ -394,7 +360,6 @@ export const translations = {
         deleteError: "خطأ في حذف الموظف",
         saveError: "خطأ في حفظ الموظف",
 
-        // Login
         loginTitle: "سجل الدخول إلى مساحتك",
         emailLabel: "البريد الإلكتروني",
         passwordLabel: "كلمة المرور",
@@ -405,7 +370,6 @@ export const translations = {
         loginError: "البريد الإلكتروني أو كلمة المرور غير صحيحة",
         connectionError: "خطأ في الاتصال",
 
-        // Landing Page
         landingTitle: "InnovateTech",
         landingSubtitle: "الموارد البشرية",
         landingDescription: "منصة إدارة الموارد البشرية الحديثة التي تحول قسمك إلى مركز للتميز",
@@ -442,14 +406,11 @@ export const translations = {
         benefit5: "واجهة متجاوبة",
         benefit6: "دعم فني على مدار الساعة",
 
-        // Theme
         switchToLight: "التبديل إلى الوضع الفاتح",
         switchToDark: "التبديل إلى الوضع الداكن",
 
-        // Loading
         loading: "جاري التحميل...",
 
-        // Common
         welcome: "مرحباً",
     }
 };
