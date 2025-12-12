@@ -429,18 +429,18 @@ Ce projet a été développé avec passion par :
       <br />
       <sub><b>Zakaria Hannane</b></sub>
       <br />
-      <sub>Développeur Frontend</sub>
+      <sub>Développeur Full-stack </sub>
       <br />
-      <a href="mailto:zakariahannane28@gmail.com">📧 Email</a>
+      <a href="mailto:zakariahannane28@gmail.com">zakariahannane28@gmail.com <a>
     </td>
     <td align="center">
       <img src="https://via.placeholder.com/100" width="100px;" alt="Yassine"/>
       <br />
       <sub><b>Yassine Rida</b></sub>
       <br />
-      <sub>Développeur Frontend</sub>
+      <sub>Développeur Full-stack  </sub>
       <br />
-      <sub>Contribution au développement</sub>
+   
     </td>
   </tr>
 </table>
