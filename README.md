@@ -324,17 +324,11 @@ innovate-tech-rh/
 
 ### Compte Administrateur
 ```
-Email: admin@innovatetech.ma
-Mot de passe: admin123
+Email: 
+Mot de passe: 
 Rôle: Admin
 ```
 
-### Compte Employé
-```
-Email: zakariahannane28@gmail.com
-Mot de passe: password123
-Rôle: Employee
-```
 
 ---
 
