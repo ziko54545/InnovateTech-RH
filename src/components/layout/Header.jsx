@@ -2,19 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../features/auth/authSlice';
-import { Building2, LayoutDashboard, Users, LogOut, Sun, Moon } from 'lucide-react';
+import { LayoutDashboard, Users, LogOut } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { cn } from '../../utils/cn';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useLanguage } from '../../contexts/LanguageContext';
 import LanguageSelector from '../common/LanguageSelector';
+import ThemeToggle from '../common/ThemeToggle';
 
 const Header = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
     const { t, dir } = useLanguage();
     const [logoRotate, setLogoRotate] = useState(true);
 
@@ -46,12 +47,11 @@ const Header = () => {
             <div className="w-[90%] mx-auto flex h-16 items-center justify-between px-8">
                 <div className="flex items-center gap-6">
                     <Link to="/dashboard" className="flex items-center gap-3">
-                        <div className="h-10 w-10 rounded-lg bg-[#1e293b] p-2 shadow-lg border border-white/10">
+                        <div className={`h-10 w-10 rounded-xl shadow-lg flex-shrink-0 flex items-center justify-center overflow-hidden ${theme === 'dark' ? 'bg-[#1e293b] border border-white/10' : 'bg-white border border-gray-200 shadow-md'}`}>
                             <img
                                 src={`${import.meta.env.BASE_URL}logo.png`}
                                 alt="InnovateTech Logo"
-                                className={`w-full h-full object-contain transition-transform duration-1000 ${logoRotate ? 'rotate-[360deg]' : ''
-                                    }`}
+                                className={`w-8 h-8 object-contain transition-transform duration-1000 ${logoRotate ? 'rotate-[360deg]' : ''}`}
                             />
                         </div>
                         <span className={`hidden text-xl font-bold sm:inline-block ${theme === 'dark' ? 'text-white' : 'text-gray-900'
@@ -81,18 +81,7 @@ const Header = () => {
                 </div>
                 <div className="flex items-center gap-3">
                     <LanguageSelector />
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={toggleTheme}
-                        title={theme === 'dark' ? t('switchToLight') : t('switchToDark')}
-                    >
-                        {theme === 'dark' ? (
-                            <Sun className="h-5 w-5 text-yellow-400" />
-                        ) : (
-                            <Moon className="h-5 w-5 text-indigo-600" />
-                        )}
-                    </Button>
+                    <ThemeToggle />
                     {user && (
                         <Button
                             variant="ghost"

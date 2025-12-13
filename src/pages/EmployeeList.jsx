@@ -156,7 +156,6 @@ const EmployeeList = () => {
 
     return (
         <div className="space-y-8 animate-in fade-in duration-500" dir={dir}>
-            {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div>
                     <h2 className={`text-3xl font-bold mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
@@ -182,8 +181,7 @@ const EmployeeList = () => {
                 </div>
             )}
 
-            {/* Toolbar */}
-            <div className="bg-[#0f172a] p-4 rounded-2xl border border-white/5 flex flex-col md:flex-row gap-4 shadow-xl">
+            <div className={`p-4 rounded-2xl border flex flex-col md:flex-row gap-4 shadow-xl ${theme === 'dark' ? 'bg-[#0f172a] border-white/5' : 'bg-white border-gray-200'}`}>
                 <div className="relative flex-1">
                     <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
                     <input
@@ -198,7 +196,7 @@ const EmployeeList = () => {
                     <div className="relative w-full md:w-64">
                         <Filter className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
                         <select
-                            className="w-full bg-[#1e293b] border border-white/10 rounded-xl pl-10 pr-10 py-3 text-white appearance-none focus:outline-none focus:border-cyan-500/50 cursor-pointer"
+                            className={`w-full border rounded-xl pl-10 pr-10 py-3 appearance-none focus:outline-none cursor-pointer ${theme === 'dark' ? 'bg-[#1e293b] border-white/10 text-white focus:border-cyan-500/50' : 'bg-white border-gray-300 text-gray-900 focus:border-cyan-500'}`}
                             value={filterDept}
                             onChange={(e) => setFilterDept(e.target.value)}
                         >
@@ -230,42 +228,41 @@ const EmployeeList = () => {
                 </div>
             </div>
 
-            {/* List */}
-            <div className="bg-[#0f172a] rounded-2xl border border-white/5 overflow-hidden shadow-xl">
+            <div className={`rounded-2xl border overflow-hidden shadow-xl ${theme === 'dark' ? 'bg-[#0f172a] border-white/5' : 'bg-white border-gray-200'}`}>
                 <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                         <thead>
-                            <tr className="bg-[#1e293b]/50 text-slate-400 text-xs uppercase tracking-wider font-semibold border-b border-white/5">
-                                <th className="p-5">Employé</th>
-                                <th className="p-5">Poste</th>
-                                <th className="p-5">Département</th>
-                                <th className="p-5">Statut</th>
-                                <th className="p-5">Ancienneté</th>
+                            <tr className={`text-xs uppercase tracking-wider font-semibold border-b ${theme === 'dark' ? 'bg-[#1e293b]/50 text-slate-400 border-white/5' : 'bg-gray-50 text-gray-500 border-gray-200'}`}>
+                                <th className="p-5">{t('employee') || 'Employé'}</th>
+                                <th className="p-5">{t('position') || 'Poste'}</th>
+                                <th className="p-5">{t('department') || 'Département'}</th>
+                                <th className="p-5">{t('status') || 'Statut'}</th>
+                                <th className="p-5">{t('seniority') || 'Ancienneté'}</th>
                                 <th className={`p-5 ${dir === 'rtl' ? 'text-left' : 'text-right'}`}>
                                     {t('actions')}
                                 </th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-white/5">
+                        <tbody className={`divide-y ${theme === 'dark' ? 'divide-white/5' : 'divide-gray-100'}`}>
                             {filteredEmployees.map((emp) => (
-                                <tr key={emp.id} className={`hover:bg-white/[0.02] transition-all group ${emp.status === 'Archived' ? 'opacity-60 blur-[1px] grayscale hover:blur-0 hover:grayscale-0 hover:opacity-100' : ''}`}>
+                                <tr key={emp.id} className={`transition-all group ${emp.status === 'Archived' ? 'opacity-60 blur-[1px] grayscale hover:blur-0 hover:grayscale-0 hover:opacity-100' : ''} ${theme === 'dark' ? 'hover:bg-white/[0.02]' : 'hover:bg-gray-50'}`}>
                                     <td className="p-5">
                                         <div className="flex items-center gap-4">
-                                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-blue-500/10 flex items-center justify-center text-cyan-400 font-bold text-sm">
+                                            <div className={`w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border flex items-center justify-center text-cyan-400 font-bold text-sm ${theme === 'dark' ? 'border-blue-500/10' : 'border-blue-200'}`}>
                                                 {emp.nom[0]}{emp.prenom[0]}
                                             </div>
                                             <div>
                                                 <Link
                                                     to={`/employees/${emp.id}`}
-                                                    className="font-medium text-white hover:text-cyan-400 transition-colors"
+                                                    className={`font-medium hover:text-cyan-400 transition-colors ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}
                                                 >
                                                     {emp.nom} {emp.prenom}
                                                 </Link>
-                                                <div className="text-xs text-slate-500">{emp.email}</div>
+                                                <div className={`text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-gray-500'}`}>{emp.email}</div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td className="p-5 text-sm text-slate-300">{emp.poste}</td>
+                                    <td className={`p-5 text-sm ${theme === 'dark' ? 'text-slate-300' : 'text-gray-700'}`}>{emp.poste}</td>
                                     <td className="p-5">
                                         <span className={clsx("text-xs px-2.5 py-1 rounded-full font-medium border",
                                             emp.departement === 'IT' && "text-cyan-400 border-cyan-400/20 bg-cyan-400/10",
@@ -295,7 +292,7 @@ const EmployeeList = () => {
                                             )}
                                         </div>
                                     </td>
-                                    <td className="p-5 text-sm text-slate-400 font-mono">
+                                    <td className={`p-5 text-sm font-mono ${theme === 'dark' ? 'text-slate-400' : 'text-gray-600'}`}>
                                         {calculateSeniority(emp.dateEmbauche)}
                                     </td>
                                     <td className={`p-5 ${dir === 'rtl' ? 'text-left' : 'text-right'}`}>

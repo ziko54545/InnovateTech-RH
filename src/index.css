@@ -4,16 +4,18 @@
 
 @layer base {
   :root {
-    --background: 2 8 23;
-    --foreground: 255 255 255;
-  }
-
-  [data-theme="light"] {
     --background: 249 250 251;
     --foreground: 17 24 39;
   }
 
-  [data-theme="dark"] {
+  [data-theme="light"],
+  .light {
+    --background: 249 250 251;
+    --foreground: 17 24 39;
+  }
+
+  [data-theme="dark"],
+  .dark {
     --background: 2 8 23;
     --foreground: 255 255 255;
   }
@@ -59,25 +61,37 @@
     margin-left: auto;
   }
 
-  /* Scrollbar styling */
+  /* Scrollbar styling - default for light */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-slate-800;
-  }
-
-  [data-theme="light"] ::-webkit-scrollbar-track {
     @apply bg-gray-100;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-slate-600 rounded-full;
+    @apply bg-gray-400 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+
+  /* Dark mode scrollbar */
+  [data-theme="dark"] ::-webkit-scrollbar-track,
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-slate-800;
+  }
+
+  [data-theme="dark"] ::-webkit-scrollbar-thumb,
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-slate-600 rounded-full;
+  }
+
+  [data-theme="dark"] ::-webkit-scrollbar-thumb:hover,
+  .dark ::-webkit-scrollbar-thumb:hover {
     @apply bg-slate-500;
   }
 }

@@ -93,14 +93,14 @@ const Dashboard = () => {
                 />
                 <StatCard
                     title={t('statsPayroll')}
-                    value={`${(totalPayroll / 1000).toFixed(1)}k MAD`}
+                    value={`${totalPayroll.toLocaleString('fr-MA')} MAD`}
                     icon={CreditCard}
                     trend={t('trendStable')}
                     color="blue"
                 />
                 <StatCard
                     title={t('statsAvgSalary')}
-                    value={`${(avgSalary / 1000).toFixed(1)}k MAD`}
+                    value={`${Number(avgSalary).toLocaleString('fr-MA')} MAD`}
                     icon={TrendingUp}
                     trend={t('trendInflation')}
                     color="purple"

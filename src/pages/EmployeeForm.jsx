@@ -86,7 +86,6 @@ const EmployeeForm = () => {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-8">
-                    {/* Identification */}
                     <div className="space-y-6">
                         <h3 className="text-lg font-semibold text-white flex items-center gap-2">
                             <User className="w-5 h-5 text-blue-400" />
@@ -143,7 +142,6 @@ const EmployeeForm = () => {
                         </div>
                     </div>
 
-                    {/* Pro Info */}
                     <div className="space-y-6">
                         <h3 className="text-lg font-semibold text-white flex items-center gap-2">
                             <Building2 className="w-5 h-5 text-purple-400" />

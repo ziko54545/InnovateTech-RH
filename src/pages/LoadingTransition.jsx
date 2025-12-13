@@ -14,19 +14,17 @@ const LoadingTransition = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-[#020817] via-[#0a1628] to-[#020817] flex items-center justify-center relative overflow-hidden">
-            {/* Animated Background */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
                 <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-700"></div>
             </div>
 
-            {/* Logo Container */}
             <div className="relative z-10 text-center">
-                <div className="inline-flex items-center justify-center w-32 h-32 bg-[#1e293b] rounded-3xl mb-8 shadow-2xl p-6 border border-white/10 animate-spin-slow">
+                <div className="inline-flex items-center justify-center w-36 h-36 bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl mb-8 shadow-2xl border border-white/20 animate-spin-slow">
                     <img
                         src={`${import.meta.env.BASE_URL}logo.png`}
                         alt="InnovateTech Logo"
-                        className="w-full h-full object-contain"
+                        className="w-24 h-24 object-contain"
                     />
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-2 animate-pulse">Bienvenue</h2>

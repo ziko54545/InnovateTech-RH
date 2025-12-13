@@ -6,12 +6,14 @@ import { ArrowLeft, Edit, Archive, Mail, Phone, Briefcase, Building2, Calendar, 
 import { calculateSeniority } from '../utils/helpers';
 import toast from 'react-hot-toast';
 import { Button } from '../components/ui/Button';
+import { useTheme } from '../contexts/ThemeContext';
 
 const EmployeeDetails = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { list } = useSelector(state => state.employees);
+    const { theme } = useTheme();
     const [employee, setEmployee] = useState(null);
 
     useEffect(() => {
@@ -31,8 +33,8 @@ const EmployeeDetails = () => {
                         <Archive className="w-5 h-5 text-orange-400" />
                     </div>
                     <div className="flex-1">
-                        <p className="font-bold text-white text-lg">Archiver l'employé ?</p>
-                        <p className="text-sm text-slate-400 mt-1">L'employé sera déplacé vers les archives et ne sera plus visible dans la liste active.</p>
+                        <p className={`font-bold text-lg ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Archiver l'employé ?</p>
+                        <p className={`text-sm mt-1 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-600'}`}>L'employé sera déplacé vers les archives et ne sera plus visible dans la liste active.</p>
                     </div>
                 </div>
                 <div className="flex gap-3">
@@ -86,8 +88,8 @@ const EmployeeDetails = () => {
                         <RefreshCw className="w-5 h-5 text-emerald-400" />
                     </div>
                     <div className="flex-1">
-                        <p className="font-bold text-white text-lg">Restaurer l'employé ?</p>
-                        <p className="text-sm text-slate-400 mt-1">L'employé redeviendra actif et sera visible dans la liste principale.</p>
+                        <p className={`font-bold text-lg ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Restaurer l'employé ?</p>
+                        <p className={`text-sm mt-1 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-600'}`}>L'employé redeviendra actif et sera visible dans la liste principale.</p>
                     </div>
                 </div>
                 <div className="flex gap-3">
@@ -152,16 +154,14 @@ const EmployeeDetails = () => {
 
     return (
         <div className="space-y-6 animate-in fade-in duration-500">
-            {/* Back Button */}
             <Link
                 to="/employees"
-                className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors group"
+                className={`inline-flex items-center gap-2 transition-colors group ${theme === 'dark' ? 'text-slate-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
             >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 Retour à l'annuaire
             </Link>
 
-            {/* Header Card */}
             <div className="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl p-8 shadow-xl">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-6">
@@ -198,62 +198,59 @@ const EmployeeDetails = () => {
                 </div>
             </div>
 
-            {/* Info Cards */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Personal Information */}
-                <div className="bg-[#0f172a] rounded-2xl border border-white/5 p-6 shadow-xl hover:border-white/10 transition-all">
-                    <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                <div className={`rounded-2xl border p-6 shadow-xl transition-all ${theme === 'dark' ? 'bg-[#0f172a] border-white/5 hover:border-white/10' : 'bg-white border-gray-200 hover:border-gray-300'}`}>
+                    <h2 className={`text-xl font-bold mb-6 flex items-center gap-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                         <Mail className="w-5 h-5 text-cyan-400" />
                         Informations Personnelles
                     </h2>
                     <div className="space-y-4">
-                        <div className="flex items-center gap-4 p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                            <Mail className="w-5 h-5 text-slate-400" />
+                        <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-50 hover:bg-gray-100'}`}>
+                            <Mail className={`w-5 h-5 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}`} />
                             <div>
-                                <p className="text-xs text-slate-500">Email</p>
-                                <p className="text-sm font-medium text-white">{employee.email}</p>
+                                <p className={`text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-gray-500'}`}>Email</p>
+                                <p className={`text-sm font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{employee.email}</p>
                             </div>
                         </div>
                         {employee.telephone && (
-                            <div className="flex items-center gap-4 p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                                <Phone className="w-5 h-5 text-slate-400" />
+                            <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-50 hover:bg-gray-100'}`}>
+                                <Phone className={`w-5 h-5 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}`} />
                                 <div>
-                                    <p className="text-xs text-slate-500">Téléphone</p>
-                                    <p className="text-sm font-medium text-white">{employee.telephone}</p>
+                                    <p className={`text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-gray-500'}`}>Téléphone</p>
+                                    <p className={`text-sm font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{employee.telephone}</p>
                                 </div>
                             </div>
                         )}
                     </div>
                 </div>
 
-                {/* Professional Information */}
-                <div className="bg-[#0f172a] rounded-2xl border border-white/5 p-6 shadow-xl hover:border-white/10 transition-all">
-                    <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                <div className={`rounded-2xl border p-6 shadow-xl transition-all ${theme === 'dark' ? 'bg-[#0f172a] border-white/5 hover:border-white/10' : 'bg-white border-gray-200 hover:border-gray-300'}`}>
+                    <h2 className={`text-xl font-bold mb-6 flex items-center gap-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                         <Briefcase className="w-5 h-5 text-blue-400" />
                         Informations Professionnelles
                     </h2>
                     <div className="space-y-4">
-                        <div className="flex items-center gap-4 p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                            <Building2 className="w-5 h-5 text-slate-400" />
+                        <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-50 hover:bg-gray-100'}`}>
+                            <Building2 className={`w-5 h-5 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}`} />
                             <div className="flex-1">
-                                <p className="text-xs text-slate-500">Département</p>
+                                <p className={`text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-gray-500'}`}>Département</p>
                                 <span className={`inline-block mt-1 px-3 py-1 rounded-full text-xs font-medium border ${deptColors[employee.departement]}`}>
                                     {employee.departement}
                                 </span>
                             </div>
                         </div>
-                        <div className="flex items-center gap-4 p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                            <Briefcase className="w-5 h-5 text-slate-400" />
+                        <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-50 hover:bg-gray-100'}`}>
+                            <Briefcase className={`w-5 h-5 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}`} />
                             <div>
-                                <p className="text-xs text-slate-500">Poste</p>
-                                <p className="text-sm font-medium text-white">{employee.poste}</p>
+                                <p className={`text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-gray-500'}`}>Poste</p>
+                                <p className={`text-sm font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{employee.poste}</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-4 p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                            <Calendar className="w-5 h-5 text-slate-400" />
+                        <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-50 hover:bg-gray-100'}`}>
+                            <Calendar className={`w-5 h-5 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}`} />
                             <div>
-                                <p className="text-xs text-slate-500">Date d'embauche</p>
-                                <p className="text-sm font-medium text-white">
+                                <p className={`text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-gray-500'}`}>Date d'embauche</p>
+                                <p className={`text-sm font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                                     {new Date(employee.dateEmbauche).toLocaleDateString('fr-FR', {
                                         day: 'numeric',
                                         month: 'long',
@@ -262,11 +259,11 @@ const EmployeeDetails = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-4 p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                            <DollarSign className="w-5 h-5 text-slate-400" />
+                        <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors ${theme === 'dark' ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-50 hover:bg-gray-100'}`}>
+                            <DollarSign className={`w-5 h-5 ${theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}`} />
                             <div>
-                                <p className="text-xs text-slate-500">Salaire</p>
-                                <p className="text-sm font-medium text-white">
+                                <p className={`text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-gray-500'}`}>Salaire</p>
+                                <p className={`text-sm font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                                     {Number(employee.salaire).toLocaleString('fr-MA')} MAD
                                 </p>
                             </div>
@@ -275,11 +272,10 @@ const EmployeeDetails = () => {
                 </div>
             </div>
 
-            {/* Seniority Card */}
-            <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl p-8 shadow-xl">
+            <div className={`rounded-2xl p-8 shadow-xl border ${theme === 'dark' ? 'bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-500/20' : 'bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200'}`}>
                 <div className="text-center">
                     <Calendar className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold text-slate-300 mb-2">Ancienneté</h3>
+                    <h3 className={`text-lg font-semibold mb-2 ${theme === 'dark' ? 'text-slate-300' : 'text-gray-700'}`}>Ancienneté</h3>
                     <p className="text-4xl font-bold text-blue-400">
                         {calculateSeniority(employee.dateEmbauche)}
                     </p>

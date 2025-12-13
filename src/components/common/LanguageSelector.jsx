@@ -1,13 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Globe, Check } from 'lucide-react';
+import { ChevronDown, Check } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { cn } from '../../utils/cn';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const languages = [
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'ar', name: 'العربية', flag: '🇸🇦' },
+    { code: 'fr', name: 'FR', fullName: 'Français', flag: '🇫🇷' },
+    { code: 'en', name: 'EN', fullName: 'English', flag: '🇬🇧' },
+    { code: 'ar', name: 'AR', fullName: 'العربية', flag: '🇸🇦' },
 ];
 
 const LanguageSelector = () => {
@@ -35,56 +34,59 @@ const LanguageSelector = () => {
         <div className="relative" ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={cn(
-                    "group relative p-2.5 rounded-xl transition-all duration-300 flex items-center gap-2",
-                    theme === 'dark'
-                        ? 'bg-gradient-to-br from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 border border-slate-700 shadow-lg shadow-slate-900/50'
-                        : 'bg-gradient-to-br from-white to-gray-50 hover:from-gray-50 hover:to-gray-100 border border-gray-200 shadow-lg shadow-gray-200/50'
-                )}
-                title="Change language"
+                className={`
+                    flex items-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200
+                    font-medium text-sm
+                    ${theme === 'dark'
+                        ? 'bg-slate-800 hover:bg-slate-700 text-white border border-slate-700'
+                        : 'bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 shadow-sm'
+                    }
+                `}
+                aria-label="Change language"
+                aria-expanded={isOpen}
             >
-                <Globe className="h-5 w-5 text-cyan-400 group-hover:rotate-12 transition-transform duration-300" />
-                <span className="hidden sm:inline-block text-sm font-medium">
-                    {currentLanguage.flag} {currentLanguage.name}
-                </span>
+                <span className="text-base">{currentLanguage.flag}</span>
+                <span className="hidden sm:inline">{currentLanguage.name}</span>
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}`} />
             </button>
 
             {isOpen && (
                 <div
-                    className={cn(
-                        "absolute top-full mt-2 right-0 w-48 rounded-xl shadow-2xl border backdrop-blur-lg z-50 animate-in fade-in slide-in-from-top-2 duration-200",
-                        theme === 'dark'
-                            ? 'bg-[#0f172a] border-white/10'
+                    className={`
+                        absolute top-full mt-2 right-0 min-w-[160px] py-1 rounded-lg shadow-xl border z-50
+                        animate-in fade-in slide-in-from-top-2 duration-150
+                        ${theme === 'dark'
+                            ? 'bg-slate-800 border-slate-700'
                             : 'bg-white border-gray-200'
-                    )}
+                        }
+                    `}
                 >
-                    <div className="p-2">
-                        {languages.map((lang) => (
-                            <button
-                                key={lang.code}
-                                onClick={() => {
-                                    changeLanguage(lang.code);
-                                    setIsOpen(false);
-                                }}
-                                className={cn(
-                                    "w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all text-left",
-                                    language === lang.code
-                                        ? theme === 'dark'
-                                            ? 'bg-cyan-500/20 text-cyan-400'
-                                            : 'bg-cyan-50 text-cyan-600'
-                                        : theme === 'dark'
-                                            ? 'text-slate-300 hover:bg-white/5 hover:text-white'
-                                            : 'text-gray-700 hover:bg-gray-50'
-                                )}
-                            >
-                                <span className="text-xl">{lang.flag}</span>
-                                <span className="flex-1 font-medium">{lang.name}</span>
-                                {language === lang.code && (
-                                    <Check className="h-4 w-4 text-cyan-400" />
-                                )}
-                            </button>
-                        ))}
-                    </div>
+                    {languages.map((lang) => (
+                        <button
+                            key={lang.code}
+                            onClick={() => {
+                                changeLanguage(lang.code);
+                                setIsOpen(false);
+                            }}
+                            className={`
+                                w-full flex items-center gap-3 px-3 py-2.5 text-left transition-colors
+                                ${language === lang.code
+                                    ? theme === 'dark'
+                                        ? 'bg-cyan-500/10 text-cyan-400'
+                                        : 'bg-cyan-50 text-cyan-600'
+                                    : theme === 'dark'
+                                        ? 'text-slate-300 hover:bg-slate-700'
+                                        : 'text-gray-700 hover:bg-gray-50'
+                                }
+                            `}
+                        >
+                            <span className="text-lg">{lang.flag}</span>
+                            <span className="flex-1 text-sm font-medium">{lang.fullName}</span>
+                            {language === lang.code && (
+                                <Check className="h-4 w-4 text-cyan-500" />
+                            )}
+                        </button>
+                    ))}
                 </div>
             )}
         </div>
@@ -92,4 +94,3 @@ const LanguageSelector = () => {
 };
 
 export default LanguageSelector;
-

@@ -34,7 +34,6 @@ const Sidebar = () => {
                 {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
             </Button>
 
-            {/* Logo */}
             <div className={`p-6 flex items-center ${collapsed ? 'justify-center' : 'gap-3'} border-b border-white/5 mb-6`}>
                 <div className="p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex-shrink-0">
                     <Building2 className="w-5 h-5 text-white" />
@@ -46,7 +45,6 @@ const Sidebar = () => {
                 )}
             </div>
 
-            {/* Menu */}
             <nav className="flex-1 px-3 space-y-2">
                 {menuItems.map((item) => (
                     <NavLink
@@ -72,7 +70,6 @@ const Sidebar = () => {
                 ))}
             </nav>
 
-            {/* Footer / Logout */}
             <div className="p-4 mt-auto border-t border-white/5">
                 <Button
                     variant="ghost"

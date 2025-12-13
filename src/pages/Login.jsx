@@ -46,20 +46,18 @@ const Login = () => {
 
     return (
         <div className={`min-h-screen flex items-center justify-center p-4 relative overflow-hidden ${theme === 'dark' ? 'bg-[#020817]' : 'bg-gray-50'}`} dir={dir}>
-            {/* Animated Background */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
                 <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
             </div>
 
             <div className="w-full max-w-md relative z-10">
-                {/* Logo & Title */}
                 <div className="text-center mb-8">
-                    <div className={`inline-flex items-center justify-center w-20 h-20 bg-[#1e293b] rounded-2xl mb-4 shadow-2xl p-3 border border-white/10 transition-transform duration-700 ${logoRotate ? 'rotate-[360deg] scale-110' : ''}`}>
+                    <div className={`inline-flex items-center justify-center w-24 h-24 rounded-2xl mb-4 shadow-2xl border transition-transform duration-700 ${logoRotate ? 'rotate-[360deg] scale-110' : ''} ${theme === 'dark' ? 'bg-[#1e293b] border-white/10' : 'bg-white border-gray-200'}`}>
                         <img
                             src={`${import.meta.env.BASE_URL}logo.png`}
                             alt="InnovateTech Logo"
-                            className="w-full h-full object-contain"
+                            className="w-16 h-16 object-contain"
                         />
                     </div>
                     <h1 className={`text-3xl font-bold mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
@@ -70,10 +68,8 @@ const Login = () => {
                     </p>
                 </div>
 
-                {/* Login Card */}
                 <div className="bg-[#0f172a] rounded-2xl border border-white/10 p-8 shadow-2xl backdrop-blur-sm">
                     <form onSubmit={handleSubmit} className="space-y-6">
-                        {/* Error Message */}
                         {error && (
                             <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 flex items-start gap-3 animate-in fade-in slide-in-from-top-2 duration-300">
                                 <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
@@ -83,7 +79,6 @@ const Login = () => {
                             </div>
                         )}
 
-                        {/* Email Field */}
                         <div className="space-y-2">
                             <label className={`text-sm font-medium flex items-center gap-2 ${theme === 'dark' ? 'text-slate-300' : 'text-gray-700'}`}>
                                 <Mail className="w-4 h-4 text-cyan-400" />
@@ -100,7 +95,6 @@ const Login = () => {
                             />
                         </div>
 
-                        {/* Password Field */}
                         <div className="space-y-2">
                             <label className={`text-sm font-medium flex items-center gap-2 ${theme === 'dark' ? 'text-slate-300' : 'text-gray-700'}`}>
                                 <Lock className="w-4 h-4 text-cyan-400" />
@@ -117,7 +111,6 @@ const Login = () => {
                             />
                         </div>
 
-                        {/* Submit Button */}
                         <Button type="submit" disabled={loading} className="w-full gap-2">
                             {loading ? (
                                 <>
@@ -134,7 +127,6 @@ const Login = () => {
                     </form>
                 </div>
 
-                {/* Footer */}
                 <div className="text-center mt-6">
                     <Link to="/" className={`text-sm transition-colors ${theme === 'dark' ? 'text-slate-400 hover:text-cyan-400' : 'text-gray-600 hover:text-cyan-600'}`}>
                         {dir === 'rtl' ? '→ ' : '← '}{t('backToHome')}
